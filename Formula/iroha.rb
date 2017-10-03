@@ -3,6 +3,7 @@ class Iroha < Formula
     homepage "http://iroha.tech"
     url "https://github.com/hyperledger/iroha.git", :branch => "develop"
     head "https://github.com/pinterest/plank.git"
+    version "v0.95_preview"
      
     depends_on "cmake" => :build
     depends_on "autoconf" => :build
