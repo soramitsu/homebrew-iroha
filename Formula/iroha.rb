@@ -15,7 +15,6 @@ class Iroha < Formula
     depends_on "grpc"
   
     def install
-      system "cd iroha"
       system "cmake -H. -Bbuild"
       system "cmake --build build -- -j8"
       system "mv .build/bin/irohad irohad"
