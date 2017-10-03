@@ -17,10 +17,8 @@ class Iroha < Formula
     def install
       system "cmake -H. -Bbuild"
       system "cmake --build build -- -j8"
-      system "mv .build/bin/irohad irohad"
-      system "mv .build/bin/iroha-cli iroha-cli"
-      bin.install "irohad"
-      bin.install "iroha-cli"
+      bin.install "mv .build/bin/irohad"
+      bin.install "mv .build/bin/iroha-cli"
     end
   
     test do
