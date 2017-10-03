@@ -1,7 +1,7 @@
 class Iroha < Formula
     desc "Hyperledger Iroha — distributed ledger technology platform"
     homepage "http://iroha.tech"
-    url "https://github.com/hyperledger/iroha.git", :branch => develop
+    url "https://github.com/hyperledger/iroha.git", :branch => "develop"
     head "https://github.com/pinterest/plank.git"
      
     depends_on "cmake" => :build
