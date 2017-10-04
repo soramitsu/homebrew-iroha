@@ -2,7 +2,7 @@ class Iroha < Formula
     desc "Hyperledger Iroha — distributed ledger technology platform"
     homepage "http://iroha.tech"
     url "https://github.com/hyperledger/iroha.git", :branch => "develop"
-    head "https://github.com/pinterest/plank.git"
+    head "https://github.com/hyperledger/iroha.git"
     version "v0.95_preview"
      
     depends_on "cmake" => :build
@@ -15,8 +15,28 @@ class Iroha < Formula
     depends_on "grpc"
   
     def install
+      ohai "  ___         ___         ___         ___         ___         ___         ___    \n"
+      ohai " / _ \\ _____ / _ \\ _____ / _ \\ _____ / _ \\ _____ / _ \\ _____ / _ \\ _____ / _ \\   \n"
+      ohai "| (_) |_____| (_) |_____| (_) |_____| (_) |_____| (_) |_____| (_) |_____| (_) |  \n"
+      ohai " \\___/       \\___/       \\___/       \\___/       \\___/       \\___/       \\___/   \n"
+      ohai  "\n"
+      ohai " 8 8888 8 888888888o.      ,o888888o.     8 8888        8          .8.                \n"
+      ohai" 8 8888 8 8888    `88.  . 8888     `88.   8 8888        8         .888.               \n"
+      ohai" 8 8888 8 8888     `88 ,8 8888       `8b  8 8888        8        :88888.              \n"
+      ohai " 8 8888 8 8888     ,88 88 8888        `8b 8 8888        8       . `88888.             \n"
+      ohai " 8 8888 8 8888.   ,88' 88 8888         88 8 8888        8      .8. `88888.            \n"
+      ohai " 8 8888 8 888888888P'  88 8888         88 8 8888        8     .8`8. `88888.           \n"
+      ohai " 8 8888 8 8888`8b      88 8888        ,8P 8 8888888888888    .8' `8. `88888.          \n"
+      ohai " 8 8888 8 8888 `8b.    `8 8888       ,8P  8 8888        8   .8'   `8. `88888.         \n"
+      ohai " 8 8888 8 8888   `8b.   ` 8888     ,88'   8 8888        8  .888888888. `88888.        \n"
+      ohai " 8 8888 8 8888     `88.    `8888888P'     8 8888        8 .8'       `8. `88888.       \n"
+      ohai "  ___         ___         ___         ___         ___         ___         ___           \n"
+      ohai " / _ \\ _____ / _ \\ _____ / _ \\ _____ / _ \\ _____ / _ \\ _____ / _ \\ _____ / _ \\   \n"
+      ohai "| (_) |_____| (_) |_____| (_) |_____| (_) |_____| (_) |_____| (_) |_____| (_) |  \n"
+      ohai " \\___/       \\___/       \\___/       \\___/       \\___/       \\___/       \\___/   \n"
+      
       system "cmake -H. -Bbuild"
-      system "cmake --build build -- -j8"
+      system "cmake --build build -- -j8 irohad iroha-cli"
       bin.install "build/bin/irohad"
       bin.install "build/bin/iroha-cli"
     end
