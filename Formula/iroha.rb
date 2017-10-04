@@ -10,6 +10,7 @@ class Iroha < Formula
     depends_on "automake" => :build
     depends_on "golang" => :build
     depends_on "libtool"
+    depends_on "tbb"
     depends_on "postgres"
     depends_on "boost"
     depends_on "grpc"
