@@ -36,7 +36,7 @@ class Iroha < Formula
       ohai " \\___/       \\___/       \\___/       \\___/       \\___/       \\___/       \\___/   \n"
       
       system "cmake -H. -Bbuild"
-      system "cmake --build build -- -j8 irohad iroha-cli"
+      system "cmake --build build -- -j8"
       bin.install "build/bin/irohad"
       bin.install "build/bin/iroha-cli"
     end
