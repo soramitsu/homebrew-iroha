@@ -1,49 +1,31 @@
 class Iroha < Formula
     desc "Hyperledger Iroha — distributed ledger technology platform"
-    homepage "http://iroha.tech"
+    homepage "http://iroha.tech/en"
     url "https://github.com/hyperledger/iroha.git", :branch => "develop"
-    head "https://github.com/hyperledger/iroha.git"
-    version "v0.95_preview"
-     
-    depends_on "cmake" => :build
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "golang" => :build
+    version "v0.95_preview-2"
+
     depends_on "libtool"
     depends_on "tbb"
     depends_on "postgres"
     depends_on "boost"
     depends_on "grpc"
   
+    resource "iroha_cli" do
+      url "https://github.com/hyperledger/iroha/releases/download/v0.95_preview-2/iroha-cli-mac"
+      sha1 "8eff9f5ccba6a040e79575c68e8f5940d461d0f2"
+    end
+
+    resource "irohad" do
+      url "https://github.com/hyperledger/iroha/releases/download/v0.95_preview-2/irohad-mac"
+      sha1 "8eff9f5ccba6a040e79575c68e8f5940d461d0f2"
+    end
+
     def install
-      ohai "  ___         ___         ___         ___         ___         ___         ___    \n
-      / _ \\ _____ / _ \\ _____ / _ \\ _____ / _ \\ _____ / _ \\ _____ / _ \\ _____ / _ \\   \n
-      | (_) |_____| (_) |_____| (_) |_____| (_) |_____| (_) |_____| (_) |_____| (_) |  \n
-      \\___/       \\___/       \\___/       \\___/       \\___/       \\___/       \\___/   \n
-      \n
-      8 8888 8 888888888o.      ,o888888o.     8 8888        8          .8.                \n
-      8 8888 8 8888    `88.  . 8888     `88.   8 8888        8         .888.               \n
-      8 8888 8 8888     `88 ,8 8888       `8b  8 8888        8        :88888.              \n
-      8 8888 8 8888     ,88 88 8888        `8b 8 8888        8       . `88888.             \n
-      8 8888 8 8888.   ,88' 88 8888         88 8 8888        8      .8. `88888.            \n
-      8 8888 8 888888888P'  88 8888         88 8 8888        8     .8`8. `88888.           \n
-      8 8888 8 8888`8b      88 8888        ,8P 8 8888888888888    .8' `8. `88888.          \n
-      8 8888 8 8888 `8b.    `8 8888       ,8P  8 8888        8   .8'   `8. `88888.         \n
-      8 8888 8 8888   `8b.   ` 8888     ,88'   8 8888        8  .888888888. `88888.        \n
-      8 8888 8 8888     `88.    `8888888P'     8 8888        8 .8'       `8. `88888.       \n
-      ___         ___         ___         ___         ___         ___         ___           \n
-      / _ \\ _____ / _ \\ _____ / _ \\ _____ / _ \\ _____ / _ \\ _____ / _ \\ _____ / _ \\   \n
-      | (_) |_____| (_) |_____| (_) |_____| (_) |_____| (_) |_____| (_) |_____| (_) |  \n
-      \\___/       \\___/       \\___/       \\___/       \\___/       \\___/       \\___/   \n"
-      
-      system "cmake -H. -Bbuild"
-      system "cmake --build build -- -j8 irohad iroha-cli"
-      bin.install "build/bin/irohad"
-      bin.install "build/bin/iroha-cli"
-      pkgshare.install "build/libs"
+      resource("irohad").stage { bin.install "irohad-mac" }
+      resource("iroha_cli").stage { bin.install "iroha-cli-mac" }
     end
   
     test do
-        system "#{bin}/iroha-cli", "--help"
+        system "#{bin}/iroha-cli-mac", "--help"
     end
   end
