@@ -1,7 +1,7 @@
 class Iroha < Formula
   desc "Hyperledger Iroha — distributed ledger technology platform"
   homepage "http://iroha.tech/en"
-  url "https://github.com/hyperledger/iroha.git", :branch => "develop"
+  url "https://github.com/hyperledger/iroha.git", :branch => "master"
   head "https://github.com/hyperledger/iroha.git"
   version "v0.95_preview-2"
    
