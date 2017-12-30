@@ -3,7 +3,7 @@ class Iroha < Formula
   homepage "http://iroha.tech/en"
   url "https://github.com/hyperledger/iroha.git", :branch => "master"
   head "https://github.com/hyperledger/iroha.git"
-  version "v0.95_preview-2"
+  version "v1.0_alpha"
    
   depends_on "cmake" => :build
   depends_on "autoconf" => :build
